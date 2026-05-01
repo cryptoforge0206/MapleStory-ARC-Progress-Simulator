@@ -1,0 +1,225 @@
+:root {
+    --primary: #2c3e50;
+    --bg: #f5f6fa;
+    --accent: #3498db;
+}
+
+body {
+    font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    background-color: var(--bg);
+    padding: 10px;
+    margin: 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 20px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation */
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+}
+
+.char-controls,
+.lang-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.char-controls i,
+.lang-area i {
+    color: #7f8c8d;
+    font-size: 1.2em;
+}
+
+.input-text {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 140px;
+}
+
+.btn {
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.2s;
+}
+
+.btn-add {
+    background: var(--accent);
+    color: white;
+}
+
+.btn-add:hover {
+    background: #2980b9;
+}
+
+.btn-del {
+    background: #ff7675;
+    color: white;
+}
+
+.btn-del:hover {
+    background: #e17055;
+}
+
+/* Header Panel */
+.header-panel {
+    background: #fff;
+    border: 1px solid #dee2e6;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.extra-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    font-size: 0.95em;
+}
+
+.extra-input input {
+    width: 65px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.tab-btn {
+    padding: 10px 25px;
+    cursor: pointer;
+    border: none;
+    background: #e9ecef;
+    border-radius: 30px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+    color: #7f8c8d;
+}
+
+.tab-btn.active {
+    background: var(--primary);
+    color: white;
+}
+
+/* Region Cards */
+.region-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.card {
+    border: 1px solid #eee;
+    border-top: 6px solid var(--clr);
+    border-radius: 10px;
+    padding: 18px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.card.disabled {
+    opacity: 0.3;
+    filter: grayscale(1);
+}
+
+.card-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-weight: 800;
+    font-size: 1.1em;
+    color: var(--clr);
+    gap: 10px;
+}
+
+.card-title input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.inp-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.inp-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inp-item label {
+    font-size: 0.85em;
+    font-weight: 600;
+    color: #555;
+}
+
+.inp-item input {
+    width: 90px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1em;
+}
+
+.chart-container {
+    height: 500px;
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+    .nav-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-panel {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

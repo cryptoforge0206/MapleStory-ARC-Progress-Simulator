@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MapleStory ARC Progress Simulator</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+</head>
+<body>
+
+<div class="container">
+    <!-- Navbar: Character & Language -->
+    <nav class="nav-bar">
+        <div class="char-controls">
+            <i class="fa-solid fa-user-gear"></i>
+            <select id="charSelector" onchange="switchCharacter()"></select>
+            <input type="text" id="newCharName" class="input-text">
+            <button class="btn btn-add" onclick="addCharacter()" id="ui-add">
+                <i class="fa-solid fa-plus"></i> <span id="txt-add"></span>
+            </button>
+            <button class="btn btn-del" onclick="deleteCharacter()" id="ui-del">
+                <i class="fa-solid fa-trash-can"></i> <span id="txt-del"></span>
+            </button>
+        </div>
+        
+        <div class="lang-area">
+            <i class="fa-solid fa-earth-asia"></i>
+            <select id="langPicker" class="lang-select" onchange="changeLang(this.value)">
+                <option value="en">English</option>
+                <option value="zh">繁體中文</option>
+                <option value="ja">日本語</option>
+            </select>
+        </div>
+    </nav>
+
+    <!-- Header: Extra stats & Tabs -->
+    <header class="header-panel">
+        <div class="extra-input">
+            <i class="fa-solid fa-bolt" style="color: #f1c40f;"></i>
+            <span id="ui-hyper"></span>
+            <input type="number" id="hyper_arc" oninput="saveAndCalc()">
+        </div>
+        <div class="extra-input">
+            <i class="fa-solid fa-users" style="color: #3498db;"></i>
+            <span id="ui-guild"></span>
+            <input type="number" id="guild_arc" oninput="saveAndCalc()">
+        </div>
+        
+        <div class="tabs">
+            <button class="tab-btn active" id="tab-tot" onclick="setTab('total')">
+                <i class="fa-solid fa-chart-area"></i> <span id="txt-tot"></span>
+            </button>
+            <button class="tab-btn" id="tab-ind" onclick="setTab('individual')">
+                <i class="fa-solid fa-chart-line"></i> <span id="txt-ind"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Grid: ARC Card Inputs -->
+    <main id="region-inputs" class="region-grid"></main>
+
+    <!-- Chart -->
+    <section class="chart-container">
+        <canvas id="arcChart"></canvas>
+    </section>
+</div>
+
+<!-- Main Script -->
+<script src="script.js"></script>
+
+</body>
+</html>
