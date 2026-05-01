@@ -100,10 +100,15 @@ function updateUI() {
     const container = document.getElementById('region-inputs');
     container.innerHTML = "";
     regionIds.forEach((id, index) => {
+        // --- Default Logic ---
+        // If it's the first island (vj), check it by default; others are unchecked.
+        const defaultChecked = (index === 0) ? "checked" : "";
+        const defaultClass = (index === 0) ? "" : "disabled";
+
         container.innerHTML += `
-            <div class="card" id="card_${id}" style="--clr:${colors[index]}">
+            <div class="card ${defaultClass}" id="card_${id}" style="--clr:${colors[index]}">
                 <div class="card-title">
-                    <input type="checkbox" id="chk_${id}" onchange="saveAndCalc()">
+                    <input type="checkbox" id="chk_${id}" ${defaultChecked} onchange="saveAndCalc()">
                     <span>${t.regions[index]}</span>
                 </div>
                 <div class="inp-group">
